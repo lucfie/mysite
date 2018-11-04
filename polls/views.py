@@ -21,4 +21,9 @@ def results(request, question_id):
 
 
 def vote(request, question_id, choice_id):
-    return HttpResponse("You're voting on question %s with choice %s." % (question_id, choice_id))
+    q = Question.objects.get(pk=question_id)
+    c = q.choice_set.get(pk=choice_id)
+    c.votes += 1
+    c.save()
+    return HttpResponse("You're voted on question %s with choice %s." % (question_id, choice_id))
+
