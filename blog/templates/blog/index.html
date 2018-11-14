@@ -1,12 +1,40 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
-{% if latest_post_list %}
-    <ul>
-    {% for post in latest_post_list %}
-        <li>{{ post.post_text }}</li>
-    {% endfor %}
-    </ul>
+{% block header %}
+    <header class="masthead" style="background-image: url('{% static 'base/img/blog-bg.jpg' %}')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <h1>Mein Blog</h1>
+              <h2 class="subheading">Alles was ich hier geschrieben habe.</h2>
+              <span class="meta">{{ post.pub_date }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+{% endblock %}
+
+{% block content %}
+{% if all_posts_list %}
+{% for post in all_posts_list %}
+ <div class="post-preview">
+    <a href="{% url 'blog:detail' post.id %}">
+      <h2 class="post-title">
+        {{ post.post_title }}
+      </h2>
+      <h3 class="post-subtitle">
+        {{ post.post_text }}
+      </h3>
+    </a>
+    <p class="post-meta">{{ post.pub_date }}</p>
+</div>
+<hr>
+{% endfor %}
 {% else %}
-    <p>No posts are available.</p>
+    <p>Leider keine Beiträge gefunden.</p>
 {% endif %}
+{% endblock %}

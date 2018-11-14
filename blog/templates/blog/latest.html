@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if latest_posts_list %}
+<h1>Meine aktuellsten {{ latest_posts_list.count }} Einträge im Blog</h1>
+{% for post in latest_posts_list %}
+ <div class="post-preview">
+    <a href="{% url 'blog:detail' post.id %}">
+      <h2 class="post-title">
+        {{ post.post_title }}
+      </h2>
+      <h3 class="post-subtitle">
+        {{ post.post_text }}
+      </h3>
+    </a>
+    <p class="post-meta">{{ post.pub_date }}</p>
+</div>
+<hr>
+{% endfor %}
+{% else %}
+    <p>Leider keine Beiträge gefunden.</p>
+{% endif %}
+{% endblock %}

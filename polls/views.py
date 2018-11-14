@@ -50,7 +50,7 @@ def vote(request, question_id):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
             'question': question,
-            'error_message': "You didn't select a choice.",
+            'error_message': "Du hast keine Antwort ausgew&auml;t! Bitte w%auml;hle eine Antwort.",
         })
     else:
         selected_choice.votes = F('votes') + 1

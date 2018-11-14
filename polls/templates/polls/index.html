@@ -1,6 +1,23 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+{% block header %}
+<header class="masthead" style="background-image: url('{% static 'base/img/about-bg.jpg' %}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Ich hätte da mal ein paar Fragen!</h1>
+          <span class="subheading">Es dauert auch bestimmt nicht lang'...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -8,5 +25,7 @@
     {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available.</p>
+    <p>Hmm, keine Fragen...Ich habe wohl schon genug Antworten.</p>
 {% endif %}
+{% endblock %}
+

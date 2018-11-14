@@ -1,3 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<header class="masthead" style="background-image: url('{% static 'base/img/about-bg.jpg' %}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Ich h&auml;tte da mal ein paar Fragen!</h1>
+          <span class="subheading">Es dauert auch bestimmt nicht lang'...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -8,6 +28,9 @@
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
 {% endfor %}
-<input type="submit" value="Vote">
-<a href="{% url 'polls:index' %}">Back to all questions</a>
+<input type="submit" value="Abschicken" class="btn btn-primary">
+<a href="{% url 'polls:index' %}" class="btn btn-outline-secondary" role="button">Zur&uuml;ck zu den Fragen</a>
 </form>
+{% endblock %}
+
+
