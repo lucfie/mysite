@@ -3,6 +3,8 @@ https://github.com/lucfie/mysite.git
 
 My Django-Project based on the Django tutorial
 
+Demo: http://lfiedler.pythonanywhere.com/
+
 Django tutorial app polls
 https://docs.djangoproject.com/en/2.1/intro/tutorial01/
 
