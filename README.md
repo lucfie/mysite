@@ -1,5 +1,6 @@
 # mysite
 https://github.com/lucfie/mysite.git
+
 My Django-Project based on the Django tutorial
 
 Django tutorial app polls
